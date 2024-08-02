@@ -41,7 +41,7 @@ def latest_published_results(results_resp):
 
   page_date = datetime.strptime(page_date, "%b %d, %Y").date()
   now = datetime.now().date()
-  if(now <= page_date):
+  if(now == page_date):
     return (info,page_date)
   else:
     return (None,None)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     results_resp = sebi_results_page_response()
     info,page_date = latest_published_results(results_resp=results_resp)
     if info and page_date is not None:
-      channel_id = "@sebiinfobot"
+      channel_id = "@ITExamFlix"
       tgf = TGFeeds(channel_id=channel_id,bot_token=os.environ.get('TG_BOT_TOKEN'))
       entry = {
         "info" : info,
