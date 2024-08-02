@@ -4,7 +4,7 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
-auto-post:
+check-results:
   stage: nightly
   image: python:3.12.0
   before_script: pip3 install -r requirements.txt
